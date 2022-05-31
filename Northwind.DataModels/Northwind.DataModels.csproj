@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <Company>Smith Msiska</Company>
+    <Description>These are Data Tranfer Classes</Description>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>1.2.6</Version>
+    <Authors>Smith Msiska</Authors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Employees\" />
+    <Folder Include="Suppliers\" />
+  </ItemGroup>
+
+</Project>
