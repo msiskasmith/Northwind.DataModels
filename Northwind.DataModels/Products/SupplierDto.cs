@@ -1,4 +1,4 @@
-﻿using Northwind.DataModels.Products;
+﻿using Northwind.DataModels.Location;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -6,11 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Northwind.DataModels
+namespace Northwind.DataModels.Products
 {
     public class SupplierDto
     {
-        [Display(Name ="Supplier Id")]
+        [Display(Name = "Supplier Id")]
         public short SupplierId { get; set; }
 
         [Display(Name = "Home Page")]
@@ -33,27 +33,27 @@ namespace Northwind.DataModels
 
         [MaxLength(24)]
         [Phone]
-        [Display(Name ="Fax")]
+        [Display(Name = "Fax")]
         public string SupplierFax { get; set; }
         [MaxLength(60)]
 
-        [Display(Name ="Address")]
+        [Display(Name = "Address")]
         public string SupplierAddress { get; set; }
 
         [MaxLength(15)]
-        [Display(Name ="City")]
+        [Display(Name = "City")]
         public string SupplierCity { get; set; }
 
-        [Display(Name ="Region*")]
-        [Required(ErrorMessage ="Region cannot be empty")]
+        [Display(Name = "Region*")]
+        [Required(ErrorMessage = "Region cannot be empty")]
         public short RegionId { get; set; }
 
         [MaxLength(10)]
-        [Display(Name ="Postal Code")]
+        [Display(Name = "Postal Code")]
         public string SupplierPostalCode { get; set; }
 
         [MaxLength(15)]
-        [Display(Name="Country")]
+        [Display(Name = "Country")]
         public string SupplierCountry { get; set; }
 
         [MaxLength(24)]

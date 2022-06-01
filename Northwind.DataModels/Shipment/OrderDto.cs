@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Northwind.DataModels.CustomAttributes;
+using Northwind.DataModels.Employees;
+using Northwind.DataModels.Location;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -13,33 +16,35 @@ namespace Northwind.DataModels.Shipment
         public short OrderId { get; set; }
 
         [Display(Name = "Customer*")]
-        [Required(ErrorMessage = "Customer cannot be empty")]
+        [Required(ErrorMessage = "Please select a customer")]
         public string CustomerId { get; set; }
 
         [Display(Name = "Assigned to*")]
-        [Required(ErrorMessage = "Assigned to field cannot be empty")]
+        [Range(1, short.MaxValue, ErrorMessage = "Please select the assigned employee.")]
         public short? EmployeeId { get; set; }
 
+        [Required(ErrorMessage = "Order date cannot be empty")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-
-        [Display(Name = "Order Date")]
+        [Display(Name = "Order Date*")]
+        [MaximumDate(0)]
         public DateTime? OrderDate { get; set; }
 
+        [Required(ErrorMessage = "Required date cannot be empty")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-
-        [Display(Name = "Required Date")]
+        [DisplayFormat(DataFormatString = "{0:dd MMMM yyyy}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Required Date*")]
+        [MinimumDate(0)]
         public DateTime? OrderRequiredDate { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd MMMM yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Shipped Date")]
         public DateTime? OrderShippedDate { get; set; }
 
         [Display(Name = "Shipper*")]
-        [Required(ErrorMessage ="Shipper cannot be empty")]
+        [Range(1, short.MaxValue, ErrorMessage = "Please select a shipper.")]
         public short? ShipperId { get; set; }
 
         [Display(Name = "Freight")]
@@ -58,7 +63,7 @@ namespace Northwind.DataModels.Shipment
         public string OrderShipCity { get; set; }
 
         [Display(Name = "Ship Region*")]
-        [Required(ErrorMessage ="Shp Region cannot be empty.")]
+        [Range(1, short.MaxValue, ErrorMessage = "Please select a ship region.")]
         public short ShipRegionId { get; set; }
 
         [MaxLength(10, ErrorMessage = "Postal code cannot be more than 40 characters")]

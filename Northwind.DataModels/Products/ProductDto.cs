@@ -1,5 +1,4 @@
-﻿using Northwind.DataModels.Products;
-using Northwind.DataModels.Shipment;
+﻿using Northwind.DataModels.Shipment;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -7,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Northwind.DataModels
+namespace Northwind.DataModels.Products
 {
     public class ProductDto
     {
@@ -19,12 +18,12 @@ namespace Northwind.DataModels
         [Display(Name = "Product Name*")]
         public string ProductName { get; set; }
 
-        [Display(Name ="Supplier*")]
-        [Required(ErrorMessage ="Supplier cannot be empty.")]
+        [Display(Name = "Supplier*")]
+        [Range(1, short.MaxValue, ErrorMessage = "Please select a supplier.")]
         public short? SupplierId { get; set; }
 
-        [Display(Name ="Product Category*")]
-        [Required(ErrorMessage ="Product Category cannot be empty")]
+        [Display(Name = "Product Category*")]
+        [Range(1, short.MaxValue, ErrorMessage = "Please select a product category.")]
         public short? ProductCategoryId { get; set; }
 
         [MaxLength(20)]
@@ -43,8 +42,8 @@ namespace Northwind.DataModels
         [Display(Name = "Product Recorder Level")]
         public short? ProductReorderLevel { get; set; }
 
-        [Range(0, 1, ErrorMessage ="Product discontinued field cannot be empty")]
-        [Display(Name ="Product Discontinued?*")]
+        [Range(0, 1, ErrorMessage = "Product discontinued field cannot be empty")]
+        [Display(Name = "Product Discontinued?*")]
         public int ProductDiscontinued { get; set; }
 
         public virtual ProductCategoryDto ProductCategory { get; set; }

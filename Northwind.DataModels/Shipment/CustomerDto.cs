@@ -1,4 +1,4 @@
-﻿using Northwind.DataModels.Shipment;
+﻿using Northwind.DataModels.Location;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Northwind.DataModels
+namespace Northwind.DataModels.Shipment
 {
     public class CustomerDto
     {
@@ -27,26 +27,26 @@ namespace Northwind.DataModels
 
         [MaxLength(24)]
         [Phone]
-        [Display(Name ="Fax")]
+        [Display(Name = "Fax")]
         public string CustomerFax { get; set; }
         [MaxLength(60)]
-        [Display(Name ="Address")]
+        [Display(Name = "Address")]
         public string CustomerAddress { get; set; }
 
         [MaxLength(15)]
-        [Display(Name ="City")]
+        [Display(Name = "City")]
         public string CustomerCity { get; set; }
 
-        [Display(Name ="Region*")]
-        [Required(ErrorMessage ="Region cannot be empty.")]
+        [Display(Name = "Region*")]
+        [Range(1, short.MaxValue, ErrorMessage = "Please select a region.")]
         public short RegionId { get; set; }
 
         [MaxLength(10)]
-        [Display(Name ="Postal Code")]
+        [Display(Name = "Postal Code")]
         public string CustomerPostalCode { get; set; }
 
         [MaxLength(15)]
-        [Display(Name ="Country")]
+        [Display(Name = "Country")]
         public string CustomerCountry { get; set; }
 
         [MaxLength(24)]
@@ -54,6 +54,6 @@ namespace Northwind.DataModels
         [Phone]
         public string CustomerPhone { get; set; }
 
-        public virtual RegionDto Region { get; set; } 
+        public virtual RegionDto Region { get; set; }
     }
 }

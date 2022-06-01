@@ -14,11 +14,11 @@ namespace Northwind.DataModels.Shipment
         public short OrderDetailId { get; set; }
 
         [Display(Name = "Order*")]
-        [Required(ErrorMessage ="Order cannot be empty.")]  
+        [Range(1, short.MaxValue, ErrorMessage = "Please select a an order.")]
         public short OrderId { get; set;}
 
         [Display(Name = "Product*")]
-        [Required(ErrorMessage ="Product cannot be empty.")]
+        [Range(1, short.MaxValue, ErrorMessage = "Please select a product.")]
         public short ProductId { get; set; }
 
         [Range(0.01, float.MaxValue, ErrorMessage = "Please enter number above 0.01.")]
