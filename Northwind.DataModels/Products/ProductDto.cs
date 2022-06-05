@@ -13,20 +13,22 @@ namespace Northwind.DataModels.Products
         [Display(Name = "Product Id")]
         public short ProductId { get; set; }
 
-        [MaxLength(40)]
+        [MaxLength(40, ErrorMessage ="Product Name cannot be more than 40 characters.")]
+        [MinLength(3, ErrorMessage = "Product Name cannot be less than 3 characters.")]
         [Required(ErrorMessage = "Product Name cannot be empty")]
-        [Display(Name = "Product Name*")]
+        [Display(Name = "Product Name")]
         public string ProductName { get; set; }
 
-        [Display(Name = "Supplier*")]
+        [Display(Name = "Supplier")]
         [Range(1, short.MaxValue, ErrorMessage = "Please select a supplier.")]
         public short? SupplierId { get; set; }
 
-        [Display(Name = "Product Category*")]
+        [Display(Name = "Product Category")]
         [Range(1, short.MaxValue, ErrorMessage = "Please select a product category.")]
         public short? ProductCategoryId { get; set; }
 
-        [MaxLength(20)]
+        [MaxLength(20, ErrorMessage ="Product Quantity Per Unit cannot be more than 20 characters.")]
+        [MinLength(2, ErrorMessage = "Product Quantity Per Unit cannot be less than 2 characters.")]
         [Display(Name = "Product Quantity Per Unit")]
         public string ProductQuantityPerUnit { get; set; }
 
@@ -43,7 +45,7 @@ namespace Northwind.DataModels.Products
         public short? ProductReorderLevel { get; set; }
 
         [Range(0, 1, ErrorMessage = "Product discontinued field cannot be empty")]
-        [Display(Name = "Product Discontinued?*")]
+        [Display(Name = "Product Discontinued?")]
         public int ProductDiscontinued { get; set; }
 
         public virtual ProductCategoryDto ProductCategory { get; set; }
